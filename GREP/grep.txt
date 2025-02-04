@@ -38,7 +38,9 @@ grep "error" /var/log/syslog | sort
 =>This finds "error" in the logs and sorts the results alphabetically.
 
 grep "error" /var/log/syslog | sort -k1,2
-=>This sorts the logs based on the first two columns (usually date and time).
+=>This sorts the logs based on the first two columns (usually date and time).What Does -k1,2 Mean?
+-k1 → Specifies sorting by the first column (e.g., the month name in many log formats).
+,2 → Extends the sorting to the second column (e.g., the day of the month).
 
 grep "error" /var/log/syslog | sort -r
 =>-r sorts the output in reverse order.
@@ -54,3 +56,7 @@ grep "error" /path/to/logfile.log | sort -k2,2 -k3,3
 If timestamps use ISO 8601 format (YYYY-MM-DDTHH:MM:SSZ), sort with:
 sort -k2 /path/to/logfile.log
 No need for special options since ISO format is naturally sortable.
+
+
+grep "DisplayPowerController" ./Android/Android_2k.log | sort > ./Android/DisplayPowerController_Sorted.log
+==> logs containing "DisplayPowerController", sort them, and save the output into a new log file using the following command:
